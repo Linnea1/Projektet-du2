@@ -67,9 +67,11 @@ body {
 
   position: relative;
 }
+
 #top * {
   margin: 0;
 }
+
 #top_images {
   z-index: 1;
   position: absolute;
@@ -78,12 +80,24 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: var(--gap);
+  
 }
 
 #top_images > * {
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
+ 
+}
+
+#top_images>div:nth-child(1){
+  background-image:url(../media/geo_images/bath_normal_2.jpg);
+}
+#top_images>div:nth-child(2){
+  background-image:url(../media/geo_images/york_normal_2.jpg);
+}
+#top_images>div:nth-child(3){
+  background-image:url(../media/geo_images/york_normal_1.jpg);
 }
 
 #top_text {
@@ -125,6 +139,7 @@ body {
 .container, #top {
   background-color: var(--c_back);
   padding: var(--padding);
+
 }
 
 .display_none {
