@@ -1,0 +1,119 @@
+.filter_container {
+
+}
+.filter_container:active {
+  background-color: white;
+}
+.filter_container:hover {
+  cursor: pointer;
+  box-shadow: 0 0 2px black;
+  background-color: rgba(255,255,255,.5);
+}
+
+
+.filter_container > h1 {
+  font-size: calc(1.1 * var(--basic_fSz));
+}
+
+ul.filter_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(2 * var(--gap));
+}
+
+ul.filter_list > li, button {
+  display: flex;
+  gap: var(--gap);
+  align-items: center;
+
+  padding: var(--gap) calc(3 * var(--gap));
+  border: 1px solid grey;
+  border-radius: var(--border_radius);
+
+  transition-property: background-color;
+  cursor: pointer;
+
+}
+ul.filter_list > li:hover {
+  /* box-shadow: 0 0 calc( .4 * var(--basic_fSz)) black; */
+  box-shadow: 0 0 2px black;
+
+}
+ul.filter_list > li:before {
+  --dims: calc(3 * var(--gap));
+  content: "";
+  width: var(--dims);
+  height: var(--dims);
+  border-radius: 50%;
+  border: 1px solid black;
+}
+ul.filter_list > li.selected:before {
+  background-color: var(--c_selected);
+}
+
+
+.selected {
+  background-color: white;
+}
+
+
+/* OTHERS */
+#others_filter {
+  display: grid;
+  grid-template-columns: 3fr 5fr;
+  gap: calc(1 * var(--gap));
+}
+
+#others_filter > * {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap);
+
+  border: 1px solid grey;
+  border-radius: var(--border_radius);
+  padding: calc(2 * var(--gap));
+}
+
+#search_field {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+#search_field input {
+  flex-grow: 1;
+  padding-left: 20px;
+  font-size: calc(1.25 * var(--basic_fSz));
+}
+#search_field button {
+  padding: 0 20px;
+  font-size: calc(1.25 * var(--basic_fSz));
+}
+
+
+
+/* COUNTRIES & CITIES */
+#country_filter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#country_filter > ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.country {
+  padding: calc( 3 * var(--gap) );
+  border: 1px solid grey;
+  border-radius: var(--border_radius);
+
+  display: flex;
+  flex-direction: column;
+  gap: calc(2 * var(--gap));
+}
+
+
+.country > ul {
+}
