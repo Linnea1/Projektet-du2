@@ -309,7 +309,18 @@ function create_filter(){
   // G
   // CODE according to the specification
   function update_programmes () {
-
+    const programmes = read_filters();
+    const programme_statement = document.querySelector("#programmes > p");
+    const ul_container = document.querySelector("#programmes > ul");
+  
+    ul_container.innerHTML = "";
+  
+    if (programmes.length > 0) {
+      array_each(programmes, create_programme);
+      programme_statement.textContent=("");
+    } else {
+      programme_statement.textContent=("Inga program upfyller nuvarande filter.");
+    }
     /*
         NO ARGUMENTS
   
