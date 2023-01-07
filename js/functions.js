@@ -128,6 +128,24 @@ function create_countries_cities_filters () {
 
     array_each(cities, create_city);
   }
+  /*
+    ARGUMENTS
+      This function takes an object from the array COUNTRIES. The function uses following keys from the object:
+      * Name
+      * ID
+
+      No control of arguments.
+
+    SIDE-EFFECTS
+      Creates a new element with the tag "div".
+      Gives the new element a class as well as ID.
+      Appends the new element to the element to a parent
+      Sets the text content of the new element to country.name
+      Filters and checks if the cities are connected to the right country
+
+    RETURN VALUE
+      For each filtered element, creates city.
+  */
   function create_city (city) {
 
     const dom = create_filter_element({
@@ -136,10 +154,33 @@ function create_countries_cities_filters () {
       textContent: city.name,
     });
     dom.dataset.id = city.id;
-
   }
+ /*
+    ARGUMENTS
+      This function takes an object from the array CITIES. The function uses following keys from the object:
+      * Name
+      * ID
 
+      No control of arguments.
+
+    SIDE-EFFECTS
+      Calls the function create_filter_element.
+      Gives the new element a parent, class, textContent as well as ID.
+
+
+    RETURN VALUE
+     None
+  */
   array_each(COUNTRIES, create_country);
+   /*
+    Doesn't take any arguments.
+    SIDE-EFFECTS
+    This function has two functions within it's bracket.
+    For each object in the array countries, it calls the function create_country;
+
+    RETURN VALUE
+      none
+  */
 }
 
 
