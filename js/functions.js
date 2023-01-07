@@ -230,7 +230,57 @@ function create_filter(){
   // G / VG (see details in specification)
   // CODE according to specifications
   function create_programme (programme) {
-  
+    const grand_parent= document.querySelector("#programmes");
+    const parent=grand_parent.children[1];
+    const programme_name=programme.name;
+
+
+    function searching_university(university){
+      if(university.id===programme.universityID){
+        return university.name;
+      }
+    }
+    function searching_city(cities,cityId){
+      for (let i = 0; i < cities.length; i++){
+        if(cities[i].id===cityId){
+          return cities[i];
+        }
+      }
+    }
+    function searching_level(level){
+      if(level.id===programme.levelID){
+        return level;
+      }
+    }
+    function searching_subject(subject){
+      if(subject.id===programme.subjectID){
+        return subject;
+      }
+    }
+    function searching_language(language){
+      if(language.id===programme.languageID){
+        return language;
+      }
+    }
+    const new_programme = document.createElement("div");
+    const programme_div=document.createElement("div");
+    const programme_div2=document.createElement("div");
+   
+    programme_div.innerHTML = `
+        <h1>${programme_name}</h1>
+        <p>${array_find(UNIVERSITIES, searching_university).name}</p>
+        <p>${searching_city(CITIES, array_find(UNIVERSITIES, searching_university).cityID).name}, ${searching_city(COUNTRIES,searching_city(CITIES, array_find(UNIVERSITIES, searching_university).cityID).countryID).name}</p>
+        <p>${array_find(LEVELS, searching_level).name}, ${array_find(SUBJECTS, searching_subject).name}, ${array_find(LANGUAGES, searching_language).name}</p>
+        <p class=.more_info>${array_find(UNIVERSITIES, searching_university).name}</p>
+      `;
+    new_programme.classList.add("programme");
+    parent.appendChild(new_programme);
+    new_programme.appendChild(programme_div);
+    new_programme.appendChild(programme_div2);
+    programme_div2.innerHTML = `
+        <p>${searching_city(CITIES, array_find(UNIVERSITIES, searching_university).cityID).name}, sun-index: ${searching_city(CITIES, array_find(UNIVERSITIES, searching_university).cityID).sun} (83%)</p>
+      `;
+    programme_div2.classList.add("bottom_programme")
     /*
   
       ARGUMENT
