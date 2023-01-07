@@ -1,4 +1,4 @@
-
+console.log("hej")
 // G
 // CODE According to specification
 function click_filter_element (event) {
@@ -28,7 +28,17 @@ function click_filter_element (event) {
 // G
 // CODE according to specification
 function create_filter_element (data) {
+  const text = data.textContent;
+  const parent = data.parent;
+  const klass = data.class; 
 
+  const new_element = document.createElement("li");
+  new_element.classList.add(klass);
+  parent.appendChild(new_element);
+  new_element.textContent=text;
+  new_element.addEventListener("click", click_filter_element);
+
+  return new_element;
   /*
     ARGUMENTS
       data: object that contains the following keys:
