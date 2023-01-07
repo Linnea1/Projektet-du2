@@ -360,7 +360,7 @@ function create_filter(){
     }
     array_each(city_selected_dom, callback_add_cityID);
 
-
+    //Pushing the Id of all selected filters that is #country_filter
     
     const universities = [];
     for (let i = 0; i < city_id_selected.length; i++) {
@@ -372,7 +372,7 @@ function create_filter(){
         }
       }
     }
-  
+  //With the array filled with Id's. The array university is pushing the university that match the ID.
     let programmes = [];
     function callback_add_programmes (university) {
       const university_id = university.id;
@@ -383,7 +383,7 @@ function create_filter(){
         }
       }
     }
-   
+    // a new array, called programmes are filled with the programmes that matches the university ID
     array_each(universities, callback_add_programmes);
   
   
@@ -395,13 +395,14 @@ function create_filter(){
     }
     array_each(level_selected_dom, callback_add_levelID);
 
-    
+    //Array called level_id_selected is filled with ids of selected level filters.
+  
     function test_function_level (programme) {
       return level_id_selected.includes(programme.levelID);
     }
     programmes = array_filter(programmes, test_function_level);
   
-    
+    //This function checks if the array level_id_selected includes the same elements in the array programmes
   
     const language_selected_dom = document.querySelectorAll("#language_filter li.selected");
     const language_id_selected = [];
@@ -411,14 +412,14 @@ function create_filter(){
     }
     array_each(language_selected_dom, callback_add_languageID);
   
-
+    //Fills the array with the ID of the language filters
   
     function test_function_language (programme) {
       return language_id_selected.includes(programme.languageID);
     }
     programmes = array_filter(programmes, test_function_language);
   
-  
+  //Filtering the array programmes once again by checking if the array language_id_selected includes programmes.languageID
   
     const subject_selected_dom = document.querySelectorAll("#subject_filter li.selected");
     const subject_id_selected = [];
@@ -428,7 +429,7 @@ function create_filter(){
     }
     array_each(subject_selected_dom, callback_add_subjectID);
   
-
+  //Makes an array with the id's of subjects
   
   
     function test_function_subject (programme) {
@@ -436,7 +437,7 @@ function create_filter(){
     }
     programmes = array_filter(programmes, test_function_subject);
   
-
+//Filtering the array programmes once again by checking if the array subject_id_selected includes programmes.subjectID
   
     const search_string = document.querySelector("#search_field input").value;
     if (search_string !== "") {
@@ -446,7 +447,17 @@ function create_filter(){
       programmes = array_filter(programmes, test_function);
     }
   
-   
+    //This is the input box. Checking if thevalue of the imput box matches any of the programmes in the array.
     return programmes;
   }
- 
+   /*
+      ARGUMENT
+        This function takes no arguments.
+  
+      SIDE-EFFECTS
+       This functions have multiple functions within it. Checking if the checked filters is matchig with the array programmes.
+       If they are, the array programmes get updated.
+       Specification of each function is commented beneath the functions.
+      RETURN VALUE
+      THe return value is an array with all the filtred programmes.
+    */ 
